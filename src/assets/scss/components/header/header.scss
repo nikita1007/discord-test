@@ -1,0 +1,85 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 320px;
+  width: calc(100% - 320px);
+  z-index: 150;
+  .header__inner {
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(#fff, .15);
+    .header__left {
+      .header__channel-name {
+        user-select: none;
+        display: flex;
+        align-items: center;
+        .header__channel-name-icon {
+          margin-right: 8px;
+          width: 20px;
+          height: 20px;
+          path {
+            fill: #fff;
+          }
+        }
+        .header__channel-name-title {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 22px;
+          color: #fff;
+        }
+      }
+    }
+    .header__right {
+      .header__utils {
+        display: flex;
+        align-items: center;
+        .header__utils-item {
+          margin-left: 15px;
+          cursor: pointer;
+          position: relative;
+          .header__utils-icon {
+            path {
+              transition: fill-opacity 0.15s linear, stroke-opacity 0.15s linear;
+            }
+          }
+          .label-popup {
+            opacity: 0;
+            top: 32px;
+            bottom: unset;
+            left: 50%;
+            right: unset;
+            transform: translateX(-50%) scale(.95);
+            .label-popup__inner {
+              font-size: 14px;
+              position: relative;
+              &::before {
+                top: -5px;
+                bottom: unset;
+                left: 50%;
+                right: unset;
+                transform: rotate(45deg) translateX(-50%);
+              }
+            }
+          }
+
+          &:hover {
+            .header__utils-icon {
+              path {
+                fill-opacity: 1;
+                stroke-opacity: 1;
+              }
+            }
+            .label-popup {
+              opacity: 1;
+              transform: translateX(-50%) scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

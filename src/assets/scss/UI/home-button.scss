@@ -1,0 +1,29 @@
+$home-button-svg_stroke: #fff;
+$home-button-svg_stroke-opacity: 0.6;
+$home-button-svg_stroke-opacity--hover: 1;
+$home-button-svg_stroke-width: 3px;
+$home-button-svg_stroke-linecap: round;
+
+#home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #home-button__svg {
+    width: 24px;
+    height: 24px;
+    stroke: $home-button-svg_stroke;
+    stroke-opacity: $home-button-svg_stroke-opacity;
+    stroke-width: $home-button-svg_stroke-width;
+    stroke-linecap: $home-button-svg_stroke-linecap;
+  }
+  &.circle-link--active {
+    #home-button__svg {
+      stroke-opacity: $home-button-svg_stroke-opacity--hover;
+    }
+  }
+  &.circle-link {
+    &::before {
+      display: none;
+    }
+  }
+}

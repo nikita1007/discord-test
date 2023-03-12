@@ -1,0 +1,18 @@
+.chat {
+  z-index: 145;
+  position: relative;
+  margin-top: 50px;
+  width: 100%;
+  .chat__inner {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    .stroke-separator {
+      width: calc(100% - 20px);
+      margin: 0 10px;
+    }
+  }
+}

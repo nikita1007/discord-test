@@ -1,0 +1,47 @@
+@import "../../vars";
+
+$group-sidebar_bgc--hover: #31353f;
+$group-name_c: rgba(#fff, 0.8);
+
+.group-sidebar__header {
+  display: flex;
+  align-items: center;
+  padding: 14px 10px;
+  border-bottom: 1px solid rgba(#fff, 0.15);
+  background-color: $first_color;
+  transition: background-color 0.05s linear;
+  cursor: pointer;
+  position: relative;
+  .group_name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+    color: $group-name_c;
+    font-weight: 600;
+    line-height: 21px;
+    width: 100%;
+    margin-right: 10px;
+    user-select: none;
+    pointer-events: none;
+  }
+  .arrow-icon {
+    width: 18px;
+    height: 18px;
+    stroke: white;
+    stroke-opacity: 0.8;
+    stroke-width: 2;
+    stroke-linecap: round;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    transition: transform 0.15s linear;
+  }
+  &.group-sidebar__header--active {
+    .arrow-icon {
+      transform: rotate(0deg);
+    }
+  }
+  &:hover {
+    background-color: $group-sidebar_bgc--hover;
+  }
+}

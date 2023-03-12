@@ -1,0 +1,9 @@
+// If in project you use an JavaScript, ignore errors with "files" option in this file
+{
+  "files": ["../src/assets/ts/main.ts"],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5",
+    "sourceMap": true
+  }
+}

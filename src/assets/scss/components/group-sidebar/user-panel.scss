@@ -1,0 +1,170 @@
+@import "../../vars";
+
+$account_bgc: $third_color;
+$account_bgc--hover: #3b3f4a;
+
+$headset-item_bgc: $third_color;
+$headset-item_bgc--hover: #3b3f4a;
+
+.user-panel {
+  margin-bottom: auto;
+
+  .user-panel__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $third_color;
+    padding: 8px 10px;
+    border-top: 1px solid rgba(#fff, 0.15);
+    .user-panel__account {
+      display: flex;
+      align-items: center;
+      padding: 5px 8px 5px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: $account_bgc;
+      transition: background-color 0.15s linear;
+      .user-panel__account-icon {
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+        position: relative;
+        .user-panel__account-status-wrapper {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 14px;
+          height: 14px;
+          padding: 2px;
+          background-color: $account_bgc;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.15s linear;
+          .user-panel__account-status {
+            width: 100%;
+            height: 100%;
+            .user-panel__account-status-icon {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      .user-panel__account-right {
+        display: flex;
+        flex-direction: column;
+        font-family: "Source Sans Pro", sans-serif;
+        margin-left: 8px;
+        .user-panel__account-nickname {
+          font-size: 14px;
+          font-weight: 600;
+          color: #fff;
+        }
+        .user-panel__account-id {
+          color: rgba(#fff, 0.6);
+        }
+      }
+      &:hover {
+        background-color: $account_bgc--hover;
+        .user-panel__account-icon {
+          .user-panel__account-status-wrapper {
+            background-color: $account_bgc--hover;
+          }
+        }
+      }
+    }
+    .user-panel__headset {
+      .user-panel__headset-list {
+        display: flex;
+        align-items: center;
+        .user-panel__headset-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 26px;
+          width: 26px;
+          border-radius: 5px;
+          background-color: $headset-item_bgc;
+          transition: background-color 0.15s linear;
+          margin: 0 2px;
+          position: relative;
+          z-index: $headset-item_zindex;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          button {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            &:before {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: calc(50% + 2px);
+              z-index: calc($headset-item_zindex + 1);
+              height: 3px;
+              transform-origin: left center;
+              transform: rotate(-45deg) translate(-50%, -50%);
+              border-radius: 2px;
+              background-color: #F23F42;
+              transition: width .15s linear;
+              pointer-events: none;
+              user-select: none;
+            }
+            &[data-status="active"]::before {
+              width: 0%;
+            }
+            &[data-status="unactive"]::before {
+              width: 120%;
+            }
+            &#account-settings::before {
+              display: none;
+            }
+            svg {
+              width: inherit;
+              height: inherit;
+            }
+          }
+          &:hover {
+            background-color: $headset-item_bgc--hover;
+            .label-popup {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+            }
+          }
+          .label-popup {
+            opacity: 0;
+            top: -25px;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            transition: transform 0.05s linear, opacity 0.05s linear;
+            .label-popup__inner {
+              position: relative;
+              font-size: 14px;
+              &::before {
+                bottom: -50%;
+                top: unset;
+                right: unset;
+                left: 50%;
+                border-radius: 2px;
+                background-color: $popup_bgc;
+                transform-origin: center center;
+                transform: rotate(45deg) translateX(-50%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

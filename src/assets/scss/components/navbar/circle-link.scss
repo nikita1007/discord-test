@@ -1,0 +1,97 @@
+@import "../../vars";
+
+$crcl-link_bgc: #333f44;
+$crcl-link_bgc--hover: #415259;
+
+.circle-link {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 8px;
+    border-radius: 0 4px 4px 0;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    z-index: calc($navbar_zindex + 2);
+    transition: height 0.15s linear, width .15s linear;
+  }
+  &[data-notifications="0"],
+  &:not([data-notifications]) {
+    &::before {
+      height: 0;
+      width: 0;
+    }
+  }
+  .circle-link__inner {
+    width: inherit;
+    height: inherit;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: background-color 0.15s linear, border-radius 0.15s linear;
+    z-index: $navbar_zindex;
+    position: relative;
+    overflow: hidden;
+    background-color: $crcl-link_bgc;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 50px;
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: 50%;
+      background-color: $colorfull_color;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s linear, height 0.15s linear;
+      z-index: calc($navbar_zindex + 1);
+    }
+    svg {
+      z-index: calc($navbar_zindex + 2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s linear, height 0.15s linear, fill 0.15s linear,
+        stroke 0.15s linear, stroke-opacity 0.15s linear;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &:hover {
+    .circle-link__inner {
+      border-radius: 14px;
+      background-color: $crcl-link_bgc--hover;
+    }
+    &::before {
+      width: 4px;
+      height: 14px;
+    }
+    .label-popup {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+  }
+  &--active {
+    .circle-link__inner {
+      border-radius: 14px;
+      &::after {
+        width: 120%;
+        height: 120%;
+      }
+    }
+    &::before {
+      width: 4px !important;
+      height: 25px !important;
+    }
+  }
+}

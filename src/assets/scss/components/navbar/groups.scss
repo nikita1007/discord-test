@@ -1,0 +1,12 @@
+.groups {
+  .group__item {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+    .circle-link__inner {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

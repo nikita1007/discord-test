@@ -1,0 +1,7 @@
+@import 'mixins';
+@include font-face("Rubik", "Rubik/Rubik-Medium", 500, "normal");
+@include font-face("Rubik", "Rubik/Rubik-Regular", 400, "normal");
+@include font-face("NunitoSans", "NunitoSans/NunitoSans-Regular", 400, "normal");
+@include font-face("NunitoSans", "NunitoSans/NunitoSans-SemiBold", 600, "normal");
+@include font-face("SourceSansPro", "SourceSansPro/SourceSansPro-Regular", 400, "normal");
+@include font-face("SourceSansPro", "SourceSansPro/SourceSansPro-SemiBold", 600, "normal");

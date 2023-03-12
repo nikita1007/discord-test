@@ -1,0 +1,39 @@
+@import "../vars";
+
+.label-popup {
+  display: inline-block;
+  max-width: 250px;
+  width: max-content;
+  position: absolute;
+  left: 65px;
+  top: 50%;
+  transform: translateY(-50%) scale(.95);
+  z-index: 10;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: $popup_bgc;
+  color:  $label-popup_c;
+  line-height: 22px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  transition: transform .075s linear, opacity .075s linear;
+  .label-popup__inner {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      top: 45%;
+      left: -16px;
+      border-radius: 2px;
+      background-color: $popup_bgc;
+      transform-origin: center center;
+      transform: rotate(45deg) translateY(-50%);
+    }
+  }
+}

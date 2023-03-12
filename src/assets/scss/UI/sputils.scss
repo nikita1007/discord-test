@@ -1,0 +1,7 @@
+$sputil--after_bgc: #00adb5;
+
+.sputil {
+  &:after {
+    background-color: $sputil--after_bgc;
+  }
+}

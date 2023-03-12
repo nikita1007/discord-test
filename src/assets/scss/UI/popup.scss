@@ -1,0 +1,87 @@
+@import "../vars";
+
+.popup.group-settings {
+  background-color: $popup_bgc;
+  position: absolute;
+  width: 230px;
+  top: calc(50px + 10px);
+  left: 50%;
+  padding: 5px;
+  border-radius: 2px;
+  transition: opacity .1s linear, transform .1s linear;
+  transform: scale(.95) translateX(-50%);
+  opacity: 0;
+  transform-origin: top center;
+  display: none;
+  z-index: calc($sidebar_zindex + 2);
+  .group-settings__list {
+    display: flex;
+    flex-direction: column;
+    .group-settings__item {
+      margin-top: 5px;
+      display: flex;
+      border-radius: 2px;
+      cursor: pointer;   
+      transition: background-color 0.15s linear;
+      .group-settings__item-inner {
+        width: 100%;
+        pointer-events: none;
+      }
+      a {
+        width: 100%;
+        flex: 0 0 100%;
+        padding: 8px 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+      }
+      &:has(.stroke-separator) {
+        cursor: default;
+        justify-content: center;
+      }
+      .stroke-separator {
+        width: 95%;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+      .group-settings__item-title {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+        color: rgba(#fff, 0.8);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        margin-right: 5px;
+        path {
+          transition: color 0.15s linear;
+        }
+      }
+      .group-settings__item-svg {
+        width: auto;
+        height: 16px;
+        transition: stroke-opacity 0.15s linear, fill-opacity 0.15s linear;
+      }
+      &:not(:has(.stroke-separator)):hover {
+        background-color: $colorfull_color;
+        .group-settings__item-title {
+          color: rgba(#fff, 1);
+        }
+        .group-settings__item-svg {
+          path {
+            stroke-opacity: 1 !important;
+            fill-opacity: 1 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.popup--show {
+    transform: scale(1) translateX(-50%);
+    opacity: 1;
+  }
+}

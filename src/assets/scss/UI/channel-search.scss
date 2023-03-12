@@ -1,0 +1,28 @@
+.channel-search {
+  width: 175px;
+  background-color: #1D2026;
+  border-radius: 5px;
+  position: relative;
+  input {
+    width: 100%;
+    padding: 5px 30px 5px 6px;
+    color: rgba(#fff, .8);
+    font-weight: 600;
+    font-size: 16px;
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(#fff, .6);
+    }
+  }
+  .search-bar__icon {
+    padding: 5px;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+  input:focus + .search-bar__icon svg path {
+    fill-opacity: 1;
+  }
+}

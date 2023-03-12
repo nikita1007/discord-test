@@ -1,0 +1,55 @@
+.chat-input {
+  display: flex;
+  align-items: center;
+  background-color: #3b3f4a;
+  padding: 12px 15px;
+  position: absolute;
+  width: calc(100% - 20px);
+  overflow: hidden;
+  border-radius: 5px;
+  bottom: 15px;
+  left: 10px;
+  right: 10px;
+  .chat-input__add-files {
+    margin-right: 15px;
+    .chat-input__add-files-icon svg rect {
+      transition: fill-opacity 0.15s linear;
+    }
+    &:hover {
+      .chat-input__add-files-icon svg rect {
+        fill-opacity: 1;
+      }
+    }
+  }
+  .vertical-separator {
+    height: 30px;
+    width: 2px;
+    background-color: rgba(#fff, 0.15);
+    border-radius: 2px;
+  }
+  .chat__input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(#fff, 0.85);
+    &::placeholder {
+      color: rgba(#fff, 0.6);
+      transition: color 0.15s linear;
+    }
+    &:focus::placeholder {
+      color: rgba(#fff, 0.75);
+    }
+  }
+  .chat-input__send {
+    svg path {
+      transition: fill-opacity 0.15s linear;
+    }
+
+    &:not(:disabled):hover svg path {
+      fill-opacity: 1;
+    }
+  }
+}
